@@ -22,6 +22,9 @@ namespace ZL.IdentityServer4ClientConfig
 
         public List<JsonKey> JsonKeys { get; set; }
         public bool RequireHttpsMetadata { get; set; }
+
+        public string RoleClaimType { get; set; } = "role";
+        public string NameClaimType { get; set; } = "name";
     }
 
     public class JsonKey
@@ -29,5 +32,7 @@ namespace ZL.IdentityServer4ClientConfig
         public string ClaimType { get; set; }
 
         public string Key { get; set; }
+
+        public bool Unique { get; set; }=true;
     }
 }

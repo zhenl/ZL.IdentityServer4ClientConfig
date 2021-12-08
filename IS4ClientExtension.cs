@@ -38,6 +38,8 @@ namespace Microsoft.Extensions.DependencyInjection
                         options.Scope.Add(s);
                     }
                 }
+                options.TokenValidationParameters.RoleClaimType = opt.RoleClaimType ?? "role";
+                options.TokenValidationParameters.NameClaimType = opt.NameClaimType??"name";
                 var jsonkeys = opt.JsonKeys;
                 if (jsonkeys!=null)
                 {
@@ -45,7 +47,8 @@ namespace Microsoft.Extensions.DependencyInjection
                     {
                         var claimtype = s.ClaimType;
                         var key = !string.IsNullOrEmpty(s.Key) ? s.Key : s.ClaimType;
-                        options.ClaimActions.MapUniqueJsonKey(claimtype, key);
+                        if (s.Unique) options.ClaimActions.MapUniqueJsonKey(claimtype, key);
+                        else options.ClaimActions.MapJsonKey(claimtype, key);
 
                     }
                 }

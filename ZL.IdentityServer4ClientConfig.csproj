@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Authors>Zhen Lei</Authors>
+	<Version>1.1.0</Version>
     <Copyright>MIT</Copyright>
     <Description>Help to create Identity Server 4 Client and Web Api easily.</Description>
     <PackageProjectUrl>https://github.com/zhenl/ZL.IdentityServer4ClientConfig</PackageProjectUrl>
